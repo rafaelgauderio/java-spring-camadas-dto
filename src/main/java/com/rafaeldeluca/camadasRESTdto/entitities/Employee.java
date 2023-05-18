@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,6 +22,10 @@ public class Employee implements Serializable  {
 	private Long id;
 	private String name;
 	private String password;
+	
+	@ManyToOne
+	@JoinColumn(name = "locality_id")		
+	private Locality locality;
 	
 	public Employee () {
 		
@@ -54,6 +60,14 @@ public class Employee implements Serializable  {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public Locality getLocality () {
+		return locality;
+	}
+	
+	public void setLocality (Locality locality) {
+		this.locality = locality;
 	}
 
 	@Override

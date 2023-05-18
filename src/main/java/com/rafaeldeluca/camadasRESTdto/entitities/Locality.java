@@ -1,11 +1,14 @@
 package com.rafaeldeluca.camadasRESTdto.entitities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,6 +21,9 @@ public class Locality implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	
+	@OneToMany(mappedBy = "locality")
+	private List<Employee> employess = new ArrayList<Employee>();
 	
 	public Locality () {
 		
@@ -44,6 +50,18 @@ public class Locality implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	
+
+	public List<Employee> getEmployess() {
+		return employess;
+	}
+
+	/* Sem método set para coleções
+	public void setEmployess(List<Employee> employess) {
+		this.employess = employess;
+	}
+	*/
 
 	@Override
 	public int hashCode() {
