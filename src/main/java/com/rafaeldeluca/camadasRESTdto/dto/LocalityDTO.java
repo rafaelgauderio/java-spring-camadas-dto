@@ -12,7 +12,7 @@ public class LocalityDTO implements Serializable {
 	
 	private Long id;
 	private String name;
-	private List<EmployeeDTO> employees = new ArrayList<>();
+	private List<EmployeeDTOWithLocality> employees = new ArrayList<>();
 	
 	public LocalityDTO () {
 		
@@ -45,7 +45,7 @@ public class LocalityDTO implements Serializable {
 		this.name = name;
 	}
 
-	public List<EmployeeDTO> getEmployees() {
+	public List<EmployeeDTOWithLocality> getEmployees() {
 		return employees;
 	}
 

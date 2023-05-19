@@ -5,26 +5,27 @@ import java.io.Serializable;
 import com.rafaeldeluca.camadasRESTdto.entitities.Employee;
 import com.rafaeldeluca.camadasRESTdto.entitities.Locality;
 
-
-public class EmployeeDTO implements Serializable {
+// dto do funcionário não vai expor o password dele da resposta da requisição
+public class EmployeeDTOWithLocality implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
-	private String name;	
+	private String name;
+	private LocalityDTO localityDTO;
 	
 	
-	public EmployeeDTO () {
+	public EmployeeDTOWithLocality () {
 		
 	}
 
-	public EmployeeDTO(Long id, String name) {
+	public EmployeeDTOWithLocality(Long id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
 	}
 	
-	public EmployeeDTO (Employee entity) {
+	public EmployeeDTOWithLocality (Employee entity) {
 		
 		this.id= entity.getId();
 		this.name = entity.getName();	
@@ -45,6 +46,15 @@ public class EmployeeDTO implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
-	}			
+	}
+
+	public LocalityDTO getLocalityDTO() {
+		return localityDTO;
+	}
+
+	public void setLocalityDTO(LocalityDTO localityDTO) {
+		this.localityDTO = localityDTO;
+	}		
+		
 
 }
