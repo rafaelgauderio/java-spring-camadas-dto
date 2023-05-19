@@ -5,8 +5,10 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.rafaeldeluca.camadasRESTdto.dto.EmployeeDTO;
+import com.rafaeldeluca.camadasRESTdto.dto.LocalityDTO;
 import com.rafaeldeluca.camadasRESTdto.entitities.Employee;
 import com.rafaeldeluca.camadasRESTdto.entitities.Locality;
 import com.rafaeldeluca.camadasRESTdto.repositories.LocalityRepository;
@@ -16,6 +18,12 @@ public class LocalityService {
 	
 	@Autowired
 	private LocalityRepository repository;
+	
+	@Transactional(readOnly = true)
+	public List<LocalityDTO> findAllEmployees() {
+		List<Locality> listLocality = repository.findAll();		
+		return listLocality.stream().map(x -> new LocalityDTO(x, x.getEmployess())).collect(Collectors.toList());
+	}
 	
 	public List<EmployeeDTO> findEmployeesFromLocality (Long id) {
 		Locality entity = repository.getReferenceById(id);

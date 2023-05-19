@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.rafaeldeluca.camadasRESTdto.entitities.Employee;
 import com.rafaeldeluca.camadasRESTdto.entitities.Locality;
 
 public class LocalityDTO implements Serializable {
@@ -27,6 +28,12 @@ public class LocalityDTO implements Serializable {
 	public LocalityDTO(Locality entity) {		
 		this.id = entity.getId();
 		this.name= entity.getName();		
+	}
+	
+	public LocalityDTO(Locality entity, List<Employee> employees) {
+		this.id= entity.getId();
+		this.name= entity.getName();
+		employees.forEach(emp -> this.employees.add(new EmployeeDTOWithLocality(emp)));
 	}
 
 	public Long getId() {

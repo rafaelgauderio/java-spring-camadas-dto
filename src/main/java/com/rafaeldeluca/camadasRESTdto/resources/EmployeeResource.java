@@ -1,5 +1,7 @@
 package com.rafaeldeluca.camadasRESTdto.resources;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +18,14 @@ public class EmployeeResource {
 	
 	@Autowired
 	private EmployeeService service;
+	
+	@GetMapping
+	public ResponseEntity<List<EmployeeDTO>> findAll () {
+		
+		List<EmployeeDTO> listEmployeeDTO = service.findAll();
+		return ResponseEntity.ok().body(listEmployeeDTO);
+		
+	}
 	
 	
 	@GetMapping(value="/{id}")
