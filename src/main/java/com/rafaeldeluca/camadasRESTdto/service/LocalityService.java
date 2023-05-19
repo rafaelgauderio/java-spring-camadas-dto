@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,9 +22,11 @@ public class LocalityService {
 	private LocalityRepository repository;
 	
 	@Transactional(readOnly = true)
-	public List<LocalityDTO> findAllEmployees() {
-		List<Locality> listLocality = repository.findAll();		
-		return listLocality.stream().map(x -> new LocalityDTO(x, x.getEmployess())).collect(Collectors.toList());
+	//public List<LocalityDTO> findAllEmployees() {
+	public Page<LocalityDTO> findAllEmployees(PageRequest pageRequest) {
+		Page<Locality> paginatedListLocality = repository.findAll(pageRequest);		
+		//return listLocality.stream().map(x -> new LocalityDTO(x, x.getEmployess())).collect(Collectors.toList());
+		return paginatedListLocality.map(x -> new LocalityDTO(x, x.getEmployess()));
 	}
 	
 	public List<EmployeeDTO> findEmployeesFromLocality (Long id) {

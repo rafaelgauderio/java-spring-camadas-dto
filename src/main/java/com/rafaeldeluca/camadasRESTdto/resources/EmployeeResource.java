@@ -20,11 +20,9 @@ public class EmployeeResource {
 	private EmployeeService service;
 	
 	@GetMapping
-	public ResponseEntity<List<EmployeeDTO>> findAll () {
-		
+	public ResponseEntity<List<EmployeeDTO>> findAll () {		
 		List<EmployeeDTO> listEmployeeDTO = service.findAll();
-		return ResponseEntity.ok().body(listEmployeeDTO);
-		
+		return ResponseEntity.ok().body(listEmployeeDTO);		
 	}
 	
 	

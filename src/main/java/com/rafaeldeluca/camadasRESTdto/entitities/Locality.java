@@ -23,7 +23,7 @@ public class Locality implements Serializable {
 	private String name;
 	
 	@OneToMany(mappedBy = "locality")
-	private List<Employee> employess = new ArrayList<Employee>();
+	private List<Employee> employees = new ArrayList<Employee>();
 	
 	public Locality () {
 		
@@ -54,7 +54,7 @@ public class Locality implements Serializable {
 	
 
 	public List<Employee> getEmployess() {
-		return employess;
+		return employees;
 	}
 
 	/* Sem método set para coleções

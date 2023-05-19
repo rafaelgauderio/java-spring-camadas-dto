@@ -3,7 +3,6 @@ package com.rafaeldeluca.camadasRESTdto.dto;
 import java.io.Serializable;
 
 import com.rafaeldeluca.camadasRESTdto.entitities.Employee;
-import com.rafaeldeluca.camadasRESTdto.entitities.Locality;
 
 
 public class EmployeeDTO implements Serializable {
