@@ -10,7 +10,8 @@ public class EmployeeDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
-	private String name;	
+	private String name;
+	private Long localityId;
 	
 	
 	public EmployeeDTO () {
@@ -26,7 +27,8 @@ public class EmployeeDTO implements Serializable {
 	public EmployeeDTO (Employee entity) {
 		
 		this.id= entity.getId();
-		this.name = entity.getName();	
+		this.name = entity.getName();
+		this.localityId = entity.getLocality().getId();
 		
 	}
 
@@ -43,7 +45,17 @@ public class EmployeeDTO implements Serializable {
 	}
 
 	public void setName(String name) {
-		this.name = name;
-	}			
+		this.name = name;		
+	}
+
+	public Long getLocalityId() {
+		return localityId;
+	}
+
+	public void setLocalityId(Long localityId) {
+		this.localityId = localityId;
+	}
+	
+	
 
 }

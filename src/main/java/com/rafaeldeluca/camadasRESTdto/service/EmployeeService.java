@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rafaeldeluca.camadasRESTdto.dto.EmployeeDTO;
+import com.rafaeldeluca.camadasRESTdto.dto.EmployeeDTOWithLocality;
 import com.rafaeldeluca.camadasRESTdto.entitities.Employee;
 import com.rafaeldeluca.camadasRESTdto.repositories.EmployeeRepository;
 

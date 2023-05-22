@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rafaeldeluca.camadasRESTdto.dto.EmployeeDTO;
+import com.rafaeldeluca.camadasRESTdto.dto.EmployeeDTOWithLocality;
 import com.rafaeldeluca.camadasRESTdto.service.EmployeeService;
 
 @RestController
