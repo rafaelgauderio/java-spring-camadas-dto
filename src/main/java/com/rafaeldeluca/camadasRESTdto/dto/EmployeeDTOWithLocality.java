@@ -12,7 +12,7 @@ public class EmployeeDTOWithLocality implements Serializable {
 
 	private Long id;
 	private String name;
-	private Long localityDTOId;
+	private Long localityId;
 
 	public EmployeeDTOWithLocality() {
 
@@ -29,7 +29,7 @@ public class EmployeeDTOWithLocality implements Serializable {
 
 		this.id = entity.getId();
 		this.name = entity.getName();
-		this.localityDTOId = entity.getLocality().getId();
+		this.localityId = entity.getLocality().getId();
 	}
 	
 
@@ -49,12 +49,12 @@ public class EmployeeDTOWithLocality implements Serializable {
 		this.name = name;
 	}
 
-	public Long getLocalityDTOId() {
-		return localityDTOId;
+	public Long getLocalityId() {
+		return localityId;
 	}
 
-	public void setLocalityDTOId(Long localityDTOid) {
-		this.localityDTOId = localityDTOid;
+	public void setLocalityId(Long localityid) {
+		this.localityId = localityid;
 	}
 
 }
