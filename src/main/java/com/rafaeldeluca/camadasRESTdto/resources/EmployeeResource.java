@@ -21,8 +21,8 @@ public class EmployeeResource {
 	private EmployeeService service;
 	
 	@GetMapping
-	public ResponseEntity<List<EmployeeDTO>> findAll () {		
-		List<EmployeeDTO> listEmployeeDTO = service.findAll();
+	public ResponseEntity<List<EmployeeDTOWithLocality>> findAll () {		
+		List<EmployeeDTOWithLocality> listEmployeeDTO = service.findAll();
 		return ResponseEntity.ok().body(listEmployeeDTO);		
 	}
 	

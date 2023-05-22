@@ -24,9 +24,9 @@ public class EmployeeService {
 		return new EmployeeDTO(entity);
 	}
 	
-	public List<EmployeeDTO> findAll () {
+	public List<EmployeeDTOWithLocality> findAll () {
 		List<Employee> listEmployee = repository.findAll();
-		return listEmployee.stream().map(x -> new EmployeeDTO(x)).collect(Collectors.toList());
+		return listEmployee.stream().map(x -> new EmployeeDTOWithLocality(x)).collect(Collectors.toList());
 	}
 
 }

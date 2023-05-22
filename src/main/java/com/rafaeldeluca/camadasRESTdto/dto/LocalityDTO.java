@@ -13,7 +13,7 @@ public class LocalityDTO implements Serializable {
 	
 	private Long id;
 	private String name;
-	private List<EmployeeDTOWithLocality> employees = new ArrayList<>();
+	private List<EmployeeDTO> employees = new ArrayList<>();
 	
 	public LocalityDTO () {
 		
@@ -33,7 +33,7 @@ public class LocalityDTO implements Serializable {
 	public LocalityDTO(Locality entity, List<Employee> employees) {
 		this.id= entity.getId();
 		this.name= entity.getName();
-		employees.forEach(emp -> this.employees.add(new EmployeeDTOWithLocality(emp)));
+		employees.forEach(emp -> this.employees.add(new EmployeeDTO(emp)));
 	}
 
 	public Long getId() {
@@ -52,7 +52,7 @@ public class LocalityDTO implements Serializable {
 		this.name = name;
 	}
 
-	public List<EmployeeDTOWithLocality> getEmployees() {
+	public List<EmployeeDTO> getEmployees() {
 		return employees;
 	}
 
